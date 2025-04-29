@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prathamesh Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+
+    .left {
+      width: 40%;
+      background-color: #823cddfa;
+      color: white;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px;
+    }
+
+    .name {
+      font-family: 'Cursive', Brush Script MT;
+      font-size: 28px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      padding-bottom: 20px;
+    }
+
+    .social-links a img {
+      width: 28px;
+      height: 28px;
+      transition: transform 0.2s;
+    }
+
+    .social-links a:hover img {
+      transform: scale(1.1);
+    }
+
+    .circle-image {
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      transform: translate(-50%, -50%);
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 5px solid white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .circle-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .right {
+      flex-grow: 1;
+      padding: 60px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: left;
+      position: relative;
+      z-index: 0;
+      margin-left: 120px; /* 👈 This pushes the text away from the circle */
+}
+
+
+    .right h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .right p {
+      font-size: 18px;
+      line-height: 1.6;
+      max-width: 600px;
+      ;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 24px;
+      background-color: #823cddfa;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+.download-btn:hover {
+      background-color: darkmagenta;
+    }
+
+    .whoami-section {
+  background-color: #f9f9f9;
+  color: white;
+  padding: 80px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whoami-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  gap: 40px;
+}
+
+.whoami-text {
+  flex: 1;
+}
+
+.whoami-text h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.whoami-text p {
+  text-align: justify;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.whoami-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.whoami-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+    @media (max-width: 768px) {
+  .whoami-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .whoami-text, .whoami-image {
+    flex: none;
+    width: 100%;
+  }
+
+  .whoami-text h2 {
+    font-size: 100px;
+  }
+
+  .whoami-text p {
+    font-size: 16px;
+  }
+
+  .whoami-image img {
+    max-width: 80%;
+    margin-top: 20px;
+    border-radius: 16px;
+  }
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Outer static container */
+.slider-container {
+      width: 100%;
+      height: 150px;
+      overflow: hidden;
+      position: relative;
+      background-color: white;
+    }
+
+    /* Inner container that slides */
+    .slider-track {
+      display: flex;
+      flex-wrap: nowrap;
+      animation: slideLeft 30s linear infinite;
+    }
+
+    /* Individual card styles */
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 120px;
+      height: 120px;
+      background-color: white;
+      border-radius: 10px;
+      margin-right: 20px;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .skill-image {
+      width: 50px;
+      height: 50px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .card-content p {
+      font-size: 14px;
+      text-align: center;
+      font-family: 'Times New Roman', Times, serif;
+      color: black;
+    }
+
+    .card:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(130, 60, 221, 0.3); /* Purple glow */
+      transform: translateY(-10px); /* Slight lift */
+    }
+
+    /* Slide animation */
+    @keyframes slideLeft {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    /* Pause sliding on hover */
+    .slider-container:hover .slider-track {
+      animation-play-state: paused;
+    }
+
+    .education-section {
+  padding: 80px 20px;
+  background-color: #f9f9f9;
+}
+
+.education-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.education-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.education-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start; /* Align cards to the left */
+  margin-top: 40px;
+}
+
+.education {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 0.6s ease;
+  width: 100%;
+  max-width: 800px;
+}
+
+.education.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.education-right {
+  flex: 1;
+  display: flex;
+  justify-content: right;
+  align-items: right;
+}
+
+.education-right img {
+  max-width: 400px;
+  height: 400px;
+  border-radius: 16px;
+  margin-top: 50px;
+  margin-right: 50px;
+}
+
+.education-text{
+  text-align: left;
+  padding: 20px;
+}
+
+
+  .education-image {
+    width: 40%;
+    height: 10%;
+    object-fit: cover;
+    border-right: 2px solid #f0f0f0;
+    margin: 10px;
+  }
+
+  .education-image2{
+    width: 40%;
+    height: 10%;
+    object-fit: cover;
+    border-right: 2px solid #f0f0f0;
+    margin: 10px;
+  }
+
+  .education:hover {
+  box-shadow: 0 8px 20px rgba(130, 60, 221, 0.3); /* Purple glow */
+  transform: translateY(-5px); /* Slight lift */
+  transform: scale(1.1); /* Image zooms */
+}
+
+  .project-section {
+  padding: 80px 20px;
+}
+
+.project-wrapper {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.project-card {
+  width: 45%;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(100px);
+  opacity: 0;
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+
+.project-content h3 {
+  margin-bottom: 10px;
+  color: #823cddfa;
+}
+
+.project-content p {
+  color: #7D7D7D;
+  line-height: 1.5;
+}
+
+/* Animation directions */
+.left-slide {
+  transform: translateX(-100px);
+}
+
+.right-slide {
+  transform: translateX(100px);
+}
+
+.project-card.show-left {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.project-card.show-right {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.project-card.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.project-image {
+  width: 150px;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover {
+  box-shadow: 0 8px 20px rgba(130, 60, 221, 0.3); /* Purple glow */
+  transform: translateY(-5px); /* Slight lift */
+}
+
+.project-card:hover {
+  transform: scale(1.1); /* Image zooms */
+}
+
+
+.achievements-section {
+  padding: 80px 20px;
+}
+
+.achievements-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.achievements-heading {
+  flex: 1;
+  text-align: center;
+}
+
+.achievements-cards {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.achievement-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(100px);
+  opacity: 0;
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+
+.achievement-card.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.achievement-card:hover {
+  box-shadow: 0 8px 20px rgba(130, 60, 221, 0.3); /* Purple glow */
+  transform: translateY(-5px); /* Slight lift */
+  transform: scale(1.1); /* Image zooms */
+}
+
+.achievement-image{
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.achievement-image:hover {
+  transform: scale(1.1); /* Image grows slightly when hovered */
+}
+
+.achievement-card h3 {
+  margin: 10px 0;
+  color: #252526;
+}
+
+.achievement-card p {
+  color: #7D7D7D;
+}
+
+.internship-section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.section-heading {
+  color: #823cddfa;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.internship-card {
+  width: 50%;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.5s ease;
+}
+
+.internship-card:hover {
+  box-shadow: 0 8px 20px rgba(130, 60, 221, 0.3); /* Purple glow */
+  transform: translateY(-5px); /* Slight lift */
+  transform: scale(1.1); /* Image zooms */
+}
+
+.internship-image-wrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.internship-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.internship-image:hover {
+  transform: scale(1.1);
+}
+
+.internship-content {
+  padding: 20px;
+}
+
+.internship-content p {
+  color: #7D7D7D;
+  margin: 10px 0;
+}
+
+.contact-section {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.section-heading {
+  color: #823cddfa;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.contact-icon {
+  width: 32px;
+  height: 32px;
+}
+
+#scrollTopBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  background-color: #823cddfa;
+  color: white;
+  border: none;
+  outline: none;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: none;
+  transition: background-color 0.3s;
+}
+
+#scrollTopBtn:hover {
+  background-color: #6826b7;
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="left">
+      <div class="name">Prathamesh Laxman Salve</div>
+
+      <div class="circle-image">
+        <img src="port.jpg" alt="Your Photo">
+      </div>
+
+      <div class="social-links">
+        <a href="http://www.linkedin.com/in/prathamesh-salve-a810aa26a" target="_blank">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
+        </a>
+        <a href="https://github.com/prathamesh9080" target="_blank">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+        </a>
+      </div>
+    </div>
+
+    <div class="right" style="color: #252526;">
+      <div>
+        <p style="color: #7D7D7D;">Student | MITAOE</p>
+        <h1>Prathamesh Laxman Salve</h1>
+        <p style="color: #7D7D7D;">
+          Welcome to my Portfolio!!<br><br>
+          Currently I am pursuing my B.Tech in Mechanical Engineering at MIT Academy of Engineering, Pune 
+          along with Full Stack Java With AL-ML at Seed Infotech, Pune. 
+        </p>
+            <a href="Prathamesh Salve IT.pdf" download class="download-btn">Download Resume</a>
+      </p>
+
+      </div>
+    </div>
+  </div>
+
+<div class="section whoami-section">
+  <div class="whoami-content">
+    <div class="whoami-text">
+      <h2 style="color: #823cddfa ; font-size: 45px;">Who I am</h2>
+      <p style="color: #7D7D7D;">
+        Hello! My name is Prathamesh Laxman Salve.<br><br>
+        I'm Prathamesh Laxman Salve, a Mechanical Engineering graduate with hands-on experience in projects 
+        and internships, proficient in CAD tools and fundamental engineering concepts. I have an interest in 
+        creativity, problem-solving, and lifelong learning. Besides engineering, I'm particularly interested in 
+        Artificial Intelligence and Machine Learning, discovered through self-learning and group projects. I'm a 
+        detail-oriented quick learner and work well in team as well as individual roles. I am looking for 
+        opportunities to learn and contribute to creative, effective projects.
+      </p>
+    </div>
+
+    <div class="whoami-image">
+      <img src="career.png" alt="Who Am I" />
+    </div>
+  </div>
+</div>
+
+<div class="section skill-section" >
+  <div class="skill-content">
+    <div class="skill-text">
+      <h2 style="color: #823cddfa ; text-align: center; font-size: 45px;" >Skills</h2>
+      
+      <div class="slider-container">
+        <div class="slider-track">
+          <div class="card">
+            <img src="catia.jpeg" alt="CatiaV5" class="skill-image">
+            <div class="card-content"><p>CatiaV5</p></div>
+          </div>
+          <div class="card">
+            <img src="fusion360.png" alt="Fusion 360" class="skill-image">
+            <div class="card-content"><p>Fusion 360</p></div>
+          </div>
+          <div class="card">
+            <img src="autocad.png" alt="AutoCAD" class="skill-image">
+            <div class="card-content"><p>AutoCAD</p></div>
+          </div>
+          <div class="card">
+            <img src="c.png" alt="C Language" class="skill-image">
+            <div class="card-content"><p>C Language</p></div>
+          </div>
+          <div class="card">
+            <img src="mysql.png" alt="SQL" class="skill-image">
+            <div class="card-content"><p>SQL</p></div>
+          </div>
+          <div class="card">
+            <img src="html.png" alt="HTML" class="skill-image">
+            <div class="card-content"><p>HTML</p></div>
+          </div>
+          <div class="card">
+            <img src="css2.png" alt="CSS" class="skill-image">
+            <div class="card-content"><p>CSS</p></div>
+          </div>
+          <div class="card">
+            <img src="canva.png" alt="Canvas" class="skill-image">
+            <div class="card-content"><p>Canvas</p></div>
+          </div>
+          <div class="card">
+            <img src="msoffice.png" alt="Microsoft Office" class="skill-image">
+            <div class="card-content"><p>Microsoft Office</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section education-section">
+        <h2 style="color: #823cddfa; font-size: 45px;">Education</h2>
+        <div class="education-wrapper">
+          <div class="education-left">
+        <div class="education-container">
+
+          <div class="education">
+            <img src="mitaoe.jpg" alt="MITAOE" class="education-image" />
+            <div class="education-content">
+              <p style="color: #7D7D7D;font-size: 12px">2022-2025</p>
+              <h3>MIT Academy of Engineering, Pune</h3>
+              <p style="color: #7D7D7D;font-size: 12px">BTech | Mechanical Engineering | SPPU</p>
+            </div>
+          </div>
+      
+          <div class="education">
+            <img src="msbte.png" alt="MSBTE" class="education-image" />
+            <div class="education-content">
+              <p style="color: #7D7D7D;font-size: 12px">2019-2022</p>
+              <h3>Government Polytechnic, Ahilyanagar</h3>
+              <p style="color: #7D7D7D;font-size: 12px">Diploma - Mechanical Engineering | MSBTE</p>
+            </div>
+          </div>
+      
+          <div class="education">
+            <img src="ssc3.png" alt="SSC" class="education-image2" />
+            <div class="education-content">
+              <p style="color: #7D7D7D;font-size: 12px">2018-2019</p>
+              <h3>Dnyansampada School, Ahilyanagar</h3>
+              <p style="color: #7D7D7D; font-size: 12px;">SSC | Maharashtra State Board</p>
+            </div>
+          </div>
+        </div>
+      </div>       
+
+      <div class="education-right">
+        <img src="edu.jpeg" alt="Education Illustration">
+      </div>
+    </div>
+  </div>
+
+<script>
+  const educationSection = document.querySelector(".education-section");
+  const educationCards = document.querySelectorAll(".education");
+
+  window.addEventListener("scroll", () => {
+    const sectionTop = educationSection.offsetTop;
+    const scrollPos = window.scrollY + window.innerHeight;
+
+    if (scrollPos > sectionTop + 100) {
+      educationCards.forEach((card, index) => {
+        setTimeout(() => {
+          card.classList.add("show");
+        }, index * 200);
+      });
+    } else {
+      educationCards.forEach(card => card.classList.remove("show"));
+    }
+  });
+</script>
+
+<div class="section project-section">
+  <h2 style="color: #823cddfa; text-align: center; margin-bottom: 40px;">Projects</h2>
+
+  <div class="project-wrapper">
+    <div class="project-card left-slide">
+      <div class="project-content">
+        <h3>Extraction of pyrolysis oil from waste plastic and it's appication </h3>
+        <p>The main objectives of this project were to understand and optimize the processes of plastic pyrolysis 
+          for maximizing the oil products, and to design a continuous pyrolysis apparatus as a semi-scale commercial 
+          plant. The materials that we tested in this project were HDPE, LDPE, PP and PS which account for 70% of the 
+          plastics used in packaging.</p>
+      </div>
+    </div>
+
+    <div class="project-card right-slide">
+      <div class="project-content">
+        <h3>Sea Oil Separator </h3>
+        <p>The main objective of this project was to remove the oil that was spill from the ships and design an 
+          effective model.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="project-wrapper">
+  <div class="project-card left-slide">
+    <div class="project-content">
+      <h3>Design and Analysis of Brake Disc Rotor of Bike Using Different Materials.</h3>
+      <p>This project comparing structural and thermal behavior of different materials 
+        upon braking through 3D modeling using CATIA V5 and finite element analysis using ANSYS, we established 
+        that carbon-ceramic composites have enhanced performance in heat resistance and life with higher braking 
+        efficiency. This paper stresses the paramount importance of material selection in achieving safety, 
+        performance, and durability in modern braking systems.</p>
+    </div>
+  </div>
+
+<script>
+  const projectCards = document.querySelectorAll(".project-card");
+
+    window.addEventListener("scroll", function () {
+    projectCards.forEach((card, index) => {
+    const cardTop = card.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+
+    if (cardTop < windowHeight - 100) {
+      if (card.classList.contains("left-slide")) {
+        card.classList.add("show-left");
+      } else {
+        card.classList.add("show-right");
+      }
+    }
+  });
+});
+</script>
+
+<div class="section achievements-section">
+  <div class="achievements-wrapper">
+    <!-- Left: Cards -->
+    <div class="achievements-cards">
+      <div class="achievement-card">
+        <h3>CATIA</h3>
+        <img src="My Catia Certificate.jpg" alt="Achievement 1" class="achievement-image">
+        <p style="font-size: 14px;">CATIA V5(R21) (Skecher, Part Modeling (Solid, Surface Sheetmetal), Assembly(Top-Down & Bottom-top Approach),
+          Drawing as per GD & T, etc) By the examination Committee with A Grade    </p>
+      </div>
+      
+      <div class="achievement-card">
+        <h3>AUTOCAD</h3>
+        <img src="My Autocad Certificate.jpg" alt="Achievement 1" class="achievement-image">
+        <p style="font-size: 14px;">AutoCAD 2021(2D Drawing in Expert Mode, Layers, Blocks Dim. Style, Parametric Drawing, 3D Solid, Surface
+           Modeling, Lighting, Materials, & Rendering) By the examination Committee with 'A' Grade.</p>
+      </div>
+
+      <div class="achievement-card">
+        <h3>Object Oriented Programming using Python</h3>
+        <img src="Infosys Sprinboard Certificate.jpg" alt="Achievement 1" class="achievement-image">
+        <p style="font-size: 14px;"> Recognized for process improvement contributions in Quality Department.</p>
+      </div>
+
+      <div class="achievement-card">
+        <h3>Ansys</h3>
+        <img src="My Ansys Certificate.jpg" alt="Achievement 1" class="achievement-image">
+        <p style="font-size: 14px;">ANSYS 19.2 (Modeling, Meshing, loads, Static and Dynamic Analysis, Fluid Flow, Analysis results 
+          interpretation, design Details.) By the examination Committee with A, Grade</p>
+      </div>
+    </div>
+
+    <!-- Right: Heading -->
+    <div class="achievements-heading">
+      <h2 style="color: #823cddfa; font-size: 45px;">Achievements</h2>
+    </div>
+  </div>
+</div>
+
+<script>
+  const achievementCards = document.querySelectorAll(".achievement-card");
+
+window.addEventListener("scroll", () => {
+  achievementCards.forEach((card) => {
+    const cardTop = card.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+
+    if (cardTop < windowHeight - 100) {
+      card.classList.add("show");
+    }
+  });
+});
+</script>
+
+<div class="section internship-section">
+  <h2 class="section-heading">Internship</h2>
+
+  <div class="internship-card">
+    <div class="internship-image-wrapper">
+      <img src="images.jpeg" alt="Internship Logo" class="internship-image">
+    </div>
+
+    <div class="internship-content">
+      <p style="color: #823cddfa;">June 2024 - Currently Working Here</p>
+      <h3>JM Aluminium, Ahmednagar</h3>
+      <p>Interned in the Quality Department where I learned about quality testing and inspection processes. 
+        Gained hands-on experience in industrial standards and practices.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section contact-section">
+  <h2 class="section-heading">Contact</h2>
+  <div class="contact-container">
+
+    <div class="contact-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email Icon" class="contact-icon">
+      <p>prathameshlsalve5888@gmail.com</p>
+    </div>
+
+    <div class="contact-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" alt="Phone Icon" class="contact-icon">
+      <p>+91 9325429282</p>
+    </div>
+
+    <div class="contact-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Location Icon" class="contact-icon">
+      <p>Ahilyanagar, Maharashtra, India</p>
+    </div>
+  </div>
+</div>
+
+<button id="scrollTopBtn" title="Go to top">↑</button>
+
+<script>
+  const scrollBtn = document.getElementById("scrollTopBtn");
+
+  window.onscroll = function () {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      scrollBtn.style.display = "block";
+    } else {
+      scrollBtn.style.display = "none";
+    }
+  };
+
+  scrollBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>
+
+</body>
+</html>
